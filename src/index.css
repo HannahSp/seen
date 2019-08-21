@@ -1,0 +1,280 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: "Lato", sans-serif;
+  line-height: 1.5; }
+
+h1, h2, h3, h4, h5, h6, p, ul {
+  margin: 0; }
+
+h1 {
+  font-family: "Luckiest Guy"; }
+
+.seen-img {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat; }
+
+.main-content {
+  margin-top: 20px; }
+
+.inner-content {
+  margin-top: 40px; }
+
+.section__heading {
+  font-size: 30px;
+  position: relative;
+  margin-left: 20px; }
+  .section__heading::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -10px;
+    left: 0px;
+    height: 5px;
+    width: 100%;
+    background: #B70101; }
+
+.overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  z-index: 99998;
+  cursor: pointer;
+  transition: all .3s ease-in-out; }
+
+.main-header {
+  width: 100%;
+  height: 90px;
+  position: relative; }
+  .main-header h1 {
+    text-align: center;
+    font-size: 3.125em;
+    margin-top: 20px;
+    line-height: 1; }
+    .main-header h1 a {
+      color: #B70101;
+      text-decoration: none; }
+
+.icon-container {
+  height: 50px;
+  width: 50px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 5px; }
+
+.menu-icon {
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  left: 20px;
+  cursor: pointer;
+  border: none; }
+  .menu-icon__bar {
+    height: 5px;
+    width: 35px;
+    background: #B70101;
+    display: block;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    border-radius: 2.5px; }
+    .menu-icon__bar:first-of-type {
+      top: 13px; }
+    .menu-icon__bar:nth-of-type(2) {
+      top: 23px; }
+    .menu-icon__bar:last-of-type {
+      top: 33px; }
+
+.main-menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  box-shadow: 2px 5px 30px rgba(0, 0, 0, 0.25);
+  background: #fff;
+  z-index: 99999; }
+
+.search-icon {
+  position: absolute;
+  right: 20px;
+  transform: translateY(-50%);
+  top: 50%;
+  cursor: pointer; }
+  .search-icon svg {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    color: #B70101;
+    font-size: 2.188em; }
+
+.moviethumb {
+  display: inline-block;
+  width: 25%;
+  height: 375px; }
+  .moviethumb__img {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat; }
+  .moviethumb span {
+    display: block; }
+
+.movie {
+  position: relative; }
+  .movie__header {
+    width: calc(100% + 20px);
+    height: calc(400px + 10px);
+    margin: -10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    filter: blur(10px); }
+    .movie__header::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0), white); }
+
+.movie-info {
+  position: absolute;
+  top: 90px;
+  left: 60px;
+  width: calc(100% - 120px);
+  height: 100%; }
+  .movie-info__poster {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    overflow: hidden;
+    float: left;
+    position: relative;
+    width: 25%;
+    height: auto; }
+  .movie-info__details {
+    width: calc(100% - 25% - 30px);
+    height: 100%;
+    min-height: 495px;
+    background: #fff;
+    float: right;
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box; }
+  .movie-info__add-button {
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    background: #B70101;
+    border: none;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    top: -30px;
+    cursor: pointer; }
+    .movie-info__add-button::before, .movie-info__add-button::after {
+      content: '';
+      display: block;
+      position: absolute;
+      background: #fff;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 50%; }
+    .movie-info__add-button::before {
+      height: 4px;
+      width: 30px; }
+    .movie-info__add-button::after {
+      width: 4px;
+      height: 30px; }
+  .movie-info__details-header {
+    border-bottom: 2px solid #B70101;
+    position: relative;
+    padding-bottom: 20px; }
+    .movie-info__details-header h2 {
+      font-size: 1.875em;
+      text-align: left;
+      font-weight: 700;
+      letter-spacing: 0.78px;
+      line-height: 1;
+      margin-bottom: 5px; }
+  .movie-info__year {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 1.875em;
+    text-align: right;
+    line-height: 1;
+    font-weight: 700; }
+  .movie-info__genre {
+    font-size: .875em;
+    text-transform: uppercase;
+    letter-spacing: .5px; }
+  .movie-info__plot h4 {
+    font-size: 1.250em; }
+  .movie-info__plot p {
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin: 20px 0; }
+  .movie-info__testimonials .testimonial {
+    text-align: center;
+    display: inline-block; }
+    .movie-info__testimonials .testimonial p span {
+      font-weight: 700;
+      font-size: 1em; }
+    .movie-info__testimonials .testimonial:first-of-type {
+      margin-right: 20px; }
+  .movie-info__footer {
+    width: calc(100% - 20px);
+    position: absolute;
+    left: 20px;
+    bottom: 0; }
+  .movie-info__crew {
+    display: inline-block;
+    margin-bottom: 20px; }
+    .movie-info__crew h5 {
+      font-size: 1em;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.25px;
+      font-weight: 700; }
+    .movie-info__crew p {
+      font-weight: 400;
+      letter-spacing: 0.89px; }
+    .movie-info__crew:nth-of-type(2) {
+      margin: 0 30px; }
+  .movie-info__rating {
+    position: absolute;
+    right: 20px;
+    bottom: 20px; }
+    .movie-info__rating span {
+      text-align: center;
+      display: block;
+      font-weight: 700;
+      font-size: 1.125em; }
+    .movie-info__rating .rating-bar {
+      width: 200px;
+      height: 50px;
+      position: relative;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+      overflow: hidden; }
+      .movie-info__rating .rating-bar__inner {
+        position: absolute;
+        height: 100%;
+        background: red; }
+
+@media only screen and (max-width: 1024px) {
+  .moviethumb {
+    width: 50%; } }
+
+/*# sourceMappingURL=index.css.map */

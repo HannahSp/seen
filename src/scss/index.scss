@@ -1,0 +1,355 @@
+//VARIABLES
+$lato_font: 'Lato', sans-serif;
+$title_font: 'Luckiest Guy';
+
+$white: #fff;
+$red: #B70101;
+
+//MIXINS
+@mixin yCenter {
+  transform: translateY(-50%);
+  top: 50%;
+}
+
+@mixin xCenter {
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+@mixin center {
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: $lato_font;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul {
+  margin: 0;
+}
+
+h1 {
+  font-family: $title_font;
+}
+
+.seen-img {
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.main-content {
+  margin-top: 20px;
+}
+
+.inner-content {
+  margin-top: 40px;
+}
+
+.section {
+  &__heading {
+    font-size: 30px;
+    position: relative;
+    margin-left: 20px;
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: -10px;
+      left: 0px;
+      height: 5px;
+      width: 100%;
+      background: $red;
+    }
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  z-index: 99998;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+.main-header {
+  width: 100%;
+  height: 90px;
+  position: relative;
+  h1 {
+    text-align: center;
+    font-size: 3.125em;
+    margin-top: 20px;
+    line-height: 1;
+    a {
+      color: $red;
+      text-decoration: none;
+    }
+  }
+}
+
+.icon-container {
+  height: 50px;
+  width: 50px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.25);
+  border-radius: 5px;
+}
+
+.menu-icon {
+  position: absolute;
+  @include yCenter();
+  left: 20px;
+  cursor: pointer;
+  border: none;
+  &__bar {
+    height: 5px;
+    width: 35px;
+    background: $red;
+    display: block;
+    position: absolute;
+    @include xCenter();
+    border-radius: 2.5px;
+    &:first-of-type {
+      top: 13px;
+    }
+    &:nth-of-type(2) {
+      top: 23px;
+    }
+    &:last-of-type {
+      top: 33px;
+    }
+  }
+}
+.main-menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  box-shadow: 2px 5px 30px rgba(0,0,0,0.25);
+  background: $white;
+  z-index: 99999;
+}
+
+.search-icon {
+  position: absolute;
+  right: 20px;
+  @include yCenter();
+  cursor: pointer;
+  svg {
+    position: absolute;
+    @include center();
+    color: $red;
+    font-size: 2.188em;
+  }
+}
+
+.moviethumb {
+  display: inline-block;
+  width: 25%;
+  height: 375px;
+  &__img {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  span {
+    display: block;
+  }
+}
+
+.movie {
+  position: relative;
+  &__header {
+    width: calc(100% + 20px);
+    height: calc(400px + 10px);
+    margin: -10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    filter: blur(10px);
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(255,255,255,1));
+    }
+  }
+}
+
+.movie-info {
+  position: absolute;
+  top: 90px;
+  left: 60px;
+  width: calc(100% - 120px);
+  height: 100%;
+  &__poster {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    overflow: hidden;
+    float: left;
+    position: relative;
+    width: 25%;
+    height: auto;
+  }
+  &__details {
+    width: calc(100% - 25% - 30px);
+    height: 100%;
+    min-height: 495px;
+    background: #fff;
+    float: right;
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  &__add-button {
+    position: absolute;
+    @include xCenter();
+    background: $red;
+    border: none;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    top: -30px;
+    cursor: pointer;
+    &::before, &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      background: $white;
+      @include center();
+    }
+
+    &::before {
+      height: 4px;
+      width: 30px;
+    }
+    &::after {
+      width: 4px;
+      height: 30px;
+    }
+  }
+  &__details-header {
+    border-bottom: 2px solid $red;
+    position: relative;
+    padding-bottom: 20px;
+    h2 {
+      font-size: 1.875em;
+      text-align: left;
+      font-weight: 700;
+      letter-spacing: 0.78px;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
+  }
+  &__year {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 1.875em;
+    text-align: right;
+    line-height: 1;
+    font-weight: 700;
+  }
+  &__genre {
+    font-size: .875em;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+  }
+  &__plot {
+    h4 {
+      font-size: 1.250em;
+    }
+    p {
+      letter-spacing: 1px;
+      cursor: pointer;
+      margin: 20px 0;
+    }
+  }
+  &__testimonials {
+    .testimonial {
+      text-align: center;
+      display: inline-block;
+      p span {
+        font-weight: 700;
+        font-size: 1em;
+      }
+      &:first-of-type {
+        margin-right: 20px;
+      }
+    }
+  }
+  &__footer {
+    width: calc(100% - 20px);
+    position: absolute;
+    left: 20px;
+    bottom: 0;
+  }
+  &__crew {
+    display: inline-block;
+    margin-bottom: 20px;
+    h5 {
+      font-size: 1em;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.25px;
+      font-weight: 700;
+    }
+    p {
+      font-weight: 400;
+      letter-spacing: 0.89px;
+    }
+    &:nth-of-type(2) {
+      margin: 0 30px;
+    }
+  }
+  &__rating {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    span {
+      text-align: center;
+      display: block;
+      font-weight: 700;
+      font-size: 1.125em;
+    }
+    .rating-bar {
+      width: 200px;
+      height: 50px;
+      position: relative;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.25);
+      overflow: hidden;
+      &__inner {
+        position: absolute;
+        height: 100%;
+        background: red;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .moviethumb {
+    width: 50%;
+  }
+}
